@@ -2,6 +2,7 @@
 #include "Sprite.h"
 #include <SDL/SDL.h>
 #include <Gl/glew.h>
+#include "GLSLProgram.h"
 #include <iostream>
 #include "Errors.h"
 
@@ -14,13 +15,15 @@ public:
 	~MainGame();
 
 	void run();
+
+private:
 	void initSystems();
 	void gameLoop();
-
+	void initShaders();
 	void processInput();
 	void drawGame();
 
-private:
+
 
 	SDL_Window* _window;
 	int _screenWidth;
@@ -28,5 +31,7 @@ private:
 	GameState _gameState;
 
 	Sprite _sprite;
+
+	GLSLProgram _colorShaderProgram;
 };
 
